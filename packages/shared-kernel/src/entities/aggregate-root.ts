@@ -1,13 +1,9 @@
 import type { DomainEvent } from '../events/domain-event.js';
 import { Entity } from './entity.js';
 
-type AnyDomainEvent = DomainEvent<
-  Readonly<Record<string, unknown>>
->;
+type AnyDomainEvent = DomainEvent<Readonly<Record<string, unknown>>>;
 
-export abstract class AggregateRoot<
-  TProperties,
-> extends Entity<TProperties> {
+export abstract class AggregateRoot<TProperties> extends Entity<TProperties> {
   private readonly domainEvents: AnyDomainEvent[] = [];
 
   protected addDomainEvent(event: AnyDomainEvent): void {

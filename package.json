@@ -1,15 +1,39 @@
 {
   "name": "bot-trading",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@11.20.0",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "knip": "knip",
+    "depcruise": "depcruise --validate .dependency-cruiser.cjs .",
+    "typecheck": "tsc -b --pretty false"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
     "@eslint/js": "^10.0.1",
     "@types/node": "^26.1.2",
+    "@vitest/coverage-v8": "^4.1.10",
+    "dependency-cruiser": "^18.1.1",
     "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
     "globals": "^17.9.0",
+    "husky": "^9.1.7",
+    "knip": "^6.31.0",
+    "lint-staged": "^17.3.0",
+    "prettier": "^3.9.6",
     "turbo": "^2.10.8",
-    "typescript": "^7.0.2",
-    "typescript-eslint": "^8.66.0"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.66.0",
+    "vitest": "^4.1.10"
   }
 }

@@ -11,12 +11,10 @@ export class UniqueId extends ValueObject<UniqueIdProperties> {
   }
 
   static create(value?: string): UniqueId {
-    const normalizedValue = value?.trim() || randomUUID();
+    const normalizedValue = value?.trim() ?? randomUUID();
 
     if (normalizedValue.length === 0) {
-      throw new Error(
-        'El identificador único no puede estar vacío.',
-      );
+      throw new Error('El identificador Ãºnico no puede estar vacÃ­o.');
     }
 
     return new UniqueId(normalizedValue);

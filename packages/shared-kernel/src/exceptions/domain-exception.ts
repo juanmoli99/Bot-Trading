@@ -8,10 +8,7 @@ export abstract class DomainException extends Error {
   readonly code: string;
   readonly details: Readonly<Record<string, unknown>> | undefined;
 
-  protected constructor(
-    message: string,
-    options: DomainExceptionOptions,
-  ) {
+  protected constructor(message: string, options: DomainExceptionOptions) {
     super(message, {
       cause: options.cause,
     });

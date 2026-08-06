@@ -4,10 +4,7 @@ export abstract class Entity<TProperties> {
   protected readonly properties: TProperties;
   readonly id: UniqueId;
 
-  protected constructor(
-    properties: TProperties,
-    id?: UniqueId,
-  ) {
+  protected constructor(properties: TProperties, id?: UniqueId) {
     this.properties = properties;
     this.id = id ?? UniqueId.create();
   }

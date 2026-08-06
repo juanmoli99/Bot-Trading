@@ -1,15 +1,11 @@
-export abstract class ValueObject<
-  TProperties extends object,
-> {
+export abstract class ValueObject<TProperties extends object> {
   protected readonly properties: Readonly<TProperties>;
 
   protected constructor(properties: TProperties) {
     this.properties = Object.freeze({ ...properties });
   }
 
-  equals(
-    other: ValueObject<TProperties> | null | undefined,
-  ): boolean {
+  equals(other: ValueObject<TProperties> | null | undefined): boolean {
     if (other === null || other === undefined) {
       return false;
     }
@@ -18,20 +14,14 @@ export abstract class ValueObject<
       return false;
     }
 
-    return ValueObject.areEqual(
-      this.properties,
-      other.properties,
-    );
+    return ValueObject.areEqual(this.properties, other.properties);
   }
 
   protected getProperties(): Readonly<TProperties> {
     return this.properties;
   }
 
-  private static areEqual(
-    first: unknown,
-    second: unknown,
-  ): boolean {
+  private static areEqual(first: unknown, second: unknown): boolean {
     if (Object.is(first, second)) {
       return true;
     }
@@ -71,14 +61,8 @@ export abstract class ValueObject<
 
     return firstKeys.every(
       (key) =>
-        Object.prototype.hasOwnProperty.call(
-          secondRecord,
-          key,
-        ) &&
-        ValueObject.areEqual(
-          firstRecord[key],
-          secondRecord[key],
-        ),
+        Object.prototype.hasOwnProperty.call(secondRecord, key) &&
+        ValueObject.areEqual(firstRecord[key], secondRecord[key]),
     );
   }
 }

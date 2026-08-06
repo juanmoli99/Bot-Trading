@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true
+  },
+  "files": ["vitest.config.ts"],
+  "include": ["tests/**/*.ts"],
+  "references": [
+    {
+      "path": "./packages/shared-kernel"
+    }
+  ]
+}

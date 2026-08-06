@@ -9,9 +9,7 @@ export type ResultState<TValue, TError> =
     };
 
 export class Result<TValue, TError> {
-  private constructor(
-    private readonly state: ResultState<TValue, TError>,
-  ) {}
+  private constructor(private readonly state: ResultState<TValue, TError>) {}
 
   static success<TValue, TError = never>(
     value: TValue,
@@ -51,9 +49,7 @@ export class Result<TValue, TError> {
 
   getValue(): TValue {
     if (!this.state.success) {
-      throw new Error(
-        'No se puede obtener el valor de un resultado fallido.',
-      );
+      throw new Error('No se puede obtener el valor de un resultado fallido.');
     }
 
     return this.state.value;
@@ -61,9 +57,7 @@ export class Result<TValue, TError> {
 
   getError(): TError {
     if (this.state.success) {
-      throw new Error(
-        'No se puede obtener el error de un resultado exitoso.',
-      );
+      throw new Error('No se puede obtener el error de un resultado exitoso.');
     }
 
     return this.state.error;
@@ -73,36 +67,26 @@ export class Result<TValue, TError> {
     mapper: (value: TValue) => TMappedValue,
   ): Result<TMappedValue, TError> {
     if (!this.state.success) {
-      return Result.failure<TMappedValue, TError>(
-        this.state.error,
-      );
+      return Result.failure<TMappedValue, TError>(this.state.error);
     }
 
-    return Result.success<TMappedValue, TError>(
-      mapper(this.state.value),
-    );
+    return Result.success<TMappedValue, TError>(mapper(this.state.value));
   }
 
   mapError<TMappedError>(
     mapper: (error: TError) => TMappedError,
   ): Result<TValue, TMappedError> {
     if (this.state.success) {
-      return Result.success<TValue, TMappedError>(
-        this.state.value,
-      );
+      return Result.success<TValue, TMappedError>(this.state.value);
     }
 
-    return Result.failure<TValue, TMappedError>(
-      mapper(this.state.error),
-    );
+    return Result.failure<TValue, TMappedError>(mapper(this.state.error));
   }
 
-  match<TResult>(
-    handlers: {
-      readonly success: (value: TValue) => TResult;
-      readonly failure: (error: TError) => TResult;
-    },
-  ): TResult {
+  match<TResult>(handlers: {
+    readonly success: (value: TValue) => TResult;
+    readonly failure: (error: TError) => TResult;
+  }): TResult {
     if (this.state.success) {
       return handlers.success(this.state.value);
     }
