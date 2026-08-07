@@ -12,6 +12,7 @@ export default defineConfig(
     '**/.turbo/**',
     '**/*.tsbuildinfo',
     '**/prisma.config.ts',
+    '**/generated/**',
   ]),
   {
     files: ['**/*.{js,mjs,cjs}'],

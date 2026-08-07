@@ -1,0 +1,30 @@
+import { z } from 'zod';
+
+export const alpacaOrderSchema = z.array(
+  z.object({
+    id: z.string(),
+    client_order_id: z.string(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    submitted_at: z.string(),
+    filled_at: z.string().nullable(),
+    canceled_at: z.string().nullable(),
+    expired_at: z.string().nullable(),
+    failed_at: z.string().nullable(),
+    replaced_at: z.string().nullable(),
+    asset_id: z.string(),
+    symbol: z.string(),
+    asset_class: z.string(),
+    qty: z.string(),
+    filled_qty: z.string(),
+    type: z.string(),
+    side: z.string(),
+    time_in_force: z.string(),
+    status: z.string(),
+    limit_price: z.string().nullable(),
+    stop_price: z.string().nullable(),
+    filled_avg_price: z.string().nullable(),
+  }),
+);
+
+export type AlpacaOrderSchema = z.infer<typeof alpacaOrderSchema>;

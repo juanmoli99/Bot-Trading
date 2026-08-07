@@ -12,6 +12,10 @@ const envSchema = z.object({
   ALPACA_SECRET_KEY: z.string().optional(),
 
   DATABASE_URL: z.string().optional(),
+
+  ALPACA_TRADING_URL: z.string().optional(),
+
+  ALPACA_DATA_URL: z.string().optional(),
 });
 
 export type EnvConfig = z.infer<typeof envSchema>;
