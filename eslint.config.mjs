@@ -25,6 +25,7 @@ export default defineConfig(
   },
   {
     files: ['**/*.{ts,tsx}'],
+    ignores: ['tests/foundation.test.ts', 'vitest.config.ts'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommendedTypeChecked,
@@ -67,12 +68,12 @@ export default defineConfig(
     },
   },
   {
-    files: ['tests/*.ts', 'vitest.config.ts'],
+    files: ['tests/foundation.test.ts', 'vitest.config.ts'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
         projectService: {
-          allowDefaultProject: ['tests/*.ts', 'vitest.config.ts'],
+          allowDefaultProject: ['tests/foundation.test.ts', 'vitest.config.ts'],
         },
         tsconfigRootDir: import.meta.dirname,
       },
