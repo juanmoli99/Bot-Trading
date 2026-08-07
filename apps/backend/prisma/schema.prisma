@@ -15,3 +15,97 @@ model SystemUser {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model TradeOrder {
+  id String @id @default(cuid())
+
+  clientOrderId String @unique
+
+  alpacaOrderId String? @unique
+
+  symbol String
+
+  side String
+
+  type String
+
+  timeInForce String
+
+  qty String?
+
+  notional String?
+
+  status String
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+}
+
+model TradeEvent {
+  id String @id @default(cuid())
+
+  eventId String @unique
+
+  orderId String
+
+  eventType String
+
+  createdAt DateTime @default(now())
+}
+
+model OperationalSafetyState {
+  id String @id @default(cuid())
+
+  tradingEnabled Boolean @default(false)
+
+  killSwitchActive Boolean @default(false)
+
+  reason String?
+
+  environment String
+
+  liveTradingAllowed Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+}
+
+model OperationalSafetyAudit {
+  id String @id @default(cuid())
+
+  action String
+
+  previousState String
+
+  newState String
+
+  reason String?
+
+  createdAt DateTime @default(now())
+}
+
+model RiskConfiguration {
+  id String @id @default(cuid())
+
+  maxDailyLoss String
+
+  maxTotalExposure String
+
+  maxOpenPositions Int
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+}
+
+model EquityHistory {
+  id String @id @default(cuid())
+
+  equity String
+
+  environment String
+
+  createdAt DateTime @default(now())
+}

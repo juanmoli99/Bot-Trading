@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { AlpacaClockMapper } from '../mappers/alpaca-clock.mapper.js';
 import type { AlpacaClock } from '../interfaces/alpaca-clock.interface.js';
 import { alpacaClockSchema } from '../schemas/alpaca-clock.schema.js';
-import type { AlpacaHttpClient } from '../services/alpaca-http.client.js';
+import { AlpacaHttpClient } from '../services/alpaca-http.client.js';
 
 @Injectable()
 export class GetAlpacaClockUseCase {

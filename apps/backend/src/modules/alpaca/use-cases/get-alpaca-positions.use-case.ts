@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import type { AlpacaPosition } from '../interfaces/alpaca-position.interface.js';
 import { AlpacaPositionMapper } from '../mappers/alpaca-position.mapper.js';
 import { alpacaPositionSchema } from '../schemas/alpaca-position.schema.js';
-import type { AlpacaHttpClient } from '../services/alpaca-http.client.js';
+import { AlpacaHttpClient } from '../services/alpaca-http.client.js';
 
 @Injectable()
 export class GetAlpacaPositionsUseCase {

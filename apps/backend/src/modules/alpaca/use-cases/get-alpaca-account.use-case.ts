@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { AlpacaAccountMapper } from '../mappers/alpaca-account.mapper.js';
 import type { AlpacaAccount } from '../interfaces/alpaca-account.interface.js';
 import { alpacaAccountSchema } from '../schemas/alpaca-account.schema.js';
-import type { AlpacaHttpClient } from '../services/alpaca-http.client.js';
+import { AlpacaHttpClient } from '../services/alpaca-http.client.js';
 
 @Injectable()
 export class GetAlpacaAccountUseCase {

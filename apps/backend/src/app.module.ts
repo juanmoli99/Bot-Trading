@@ -8,6 +8,7 @@ import { LoggerModule } from './common/logger/logger.module.js';
 import envConfig from './config/env.config.js';
 import { AlpacaModule } from './modules/alpaca/alpaca.module.js';
 import { HealthModule } from './modules/health/health.module.js';
+import { TradeOrdersModule } from './modules/trade-orders/trade-orders.module.js';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { HealthModule } from './modules/health/health.module.js';
     PrismaModule,
     HealthModule,
     AlpacaModule,
+    TradeOrdersModule,
   ],
   providers: [
     {

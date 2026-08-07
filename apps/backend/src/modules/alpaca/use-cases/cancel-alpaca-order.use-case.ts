@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import type { AlpacaHttpClient } from '../services/alpaca-http.client.js';
+import { AlpacaHttpClient } from '../services/alpaca-http.client.js';
 
 @Injectable()
 export class CancelAlpacaOrderUseCase {
