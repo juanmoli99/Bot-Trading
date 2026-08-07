@@ -24,7 +24,3 @@ export const alpacaOrderResponseSchema = z.object({
   stop_price: z.string().nullable(),
   filled_avg_price: z.string().nullable(),
 });
-
-export type AlpacaOrderResponseSchema = z.infer<
-  typeof alpacaOrderResponseSchema
->;

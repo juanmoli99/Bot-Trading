@@ -26,5 +26,3 @@ export const alpacaOrderSchema = z.array(
     filled_avg_price: z.string().nullable(),
   }),
 );
-
-export type AlpacaOrderSchema = z.infer<typeof alpacaOrderSchema>;

@@ -6,5 +6,3 @@ export const alpacaClockSchema = z.object({
   next_open: z.string(),
   next_close: z.string(),
 });
-
-export type AlpacaClockSchema = z.infer<typeof alpacaClockSchema>;

@@ -1,13 +1,21 @@
 {
   "$schema": "https://unpkg.com/knip@latest/schema.json",
-  "entry": ["packages/*/src/index.ts", "tests/**/*.test.ts"],
-  "project": ["**/*.{ts,tsx}"],
+  "workspaces": {
+    "apps/backend": {
+      "entry": ["src/main.ts"],
+      "project": ["src/**/*.{ts,tsx}"]
+    },
+    "apps/frontend": {
+      "entry": ["src/main.tsx"],
+      "project": ["src/**/*.{ts,tsx}"]
+    }
+  },
   "ignore": [
     "**/node_modules/**",
     "**/dist/**",
     "**/coverage/**",
     "**/.turbo/**"
   ],
-  "ignoreDependencies": ["turbo"],
+  "ignoreDependencies": ["turbo", "@prisma/client"],
   "ignoreBinaries": ["husky", "Remove-Item"]
 }

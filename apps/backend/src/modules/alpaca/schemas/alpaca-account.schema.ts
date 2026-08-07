@@ -9,5 +9,3 @@ export const alpacaAccountSchema = z.object({
   portfolio_value: z.string(),
   equity: z.string(),
 });
-
-export type AlpacaAccountSchema = z.infer<typeof alpacaAccountSchema>;

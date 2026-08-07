@@ -2,8 +2,6 @@ import { Module, type Provider } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { TradeEventsModule } from '../trade-events/trade-events.module.js';
-import { TradeOrdersModule } from '../trade-orders/trade-orders.module.js';
-
 import { AlpacaHealthController } from './controllers/alpaca-health.controller.js';
 import { AlpacaController } from './controllers/alpaca.controller.js';
 import alpacaConfig from './alpaca.config.js';
@@ -48,13 +46,7 @@ const alpacaProviders: Provider[] = [
 ];
 
 @Module({
-  imports: [
-    ConfigModule.forFeature(alpacaConfig),
-
-    TradeOrdersModule,
-
-    TradeEventsModule,
-  ],
+  imports: [ConfigModule.forFeature(alpacaConfig), TradeEventsModule],
 
   controllers: [AlpacaController, AlpacaHealthController],
 

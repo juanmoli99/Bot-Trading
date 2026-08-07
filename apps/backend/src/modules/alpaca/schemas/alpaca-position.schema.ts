@@ -18,5 +18,3 @@ export const alpacaPositionSchema = z.array(
     change_today: z.string(),
   }),
 );
-
-export type AlpacaPositionSchema = z.infer<typeof alpacaPositionSchema>;
